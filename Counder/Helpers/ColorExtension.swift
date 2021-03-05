@@ -11,7 +11,7 @@ extension Color {
     
     static let main_color = Color(UIColor(red: 17/255, green: 64/255, blue: 248/255, alpha: 1.0))
     static let primary_color = Color.black
-    static let secondary_color = Color(UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1.0))
+    static let secondary_color = Color(UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1.0))
     static let bubble_color = Color(UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 0.1))
     static let text_primary_color = Color.white
     

@@ -30,8 +30,8 @@ struct CountPickerView: View {
                 }.padding(.top, 10)
                 HStack(alignment: .center, spacing: 16) {
                     GenPickerView(label: "Hours", values: 24, index: $hoursIndex)
-                    GenPickerView(label: "Minutes", values: 24, index: $minsIndex)
-                    GenPickerView(label: "Seconds", values: 24, index: $secsIndex)
+                    GenPickerView(label: "Minutes", values: 60, index: $minsIndex)
+                    GenPickerView(label: "Seconds", values: 60, index: $secsIndex)
                 }
                 Button(action: { viewModel.startTimerButt(hours: hoursIndex, mins: minsIndex, secs: secsIndex) },
                        label: { Image(systemName: "arrowtriangle.right.fill").resizable().frame(width: 14, height: 18) })

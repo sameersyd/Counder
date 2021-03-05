@@ -22,7 +22,7 @@ struct TimerView: View {
                     .resizable().frame(width: 54, height: 60)
                     .foregroundColor(Color.white).offset(x: 5, y: 0)
             } else {
-                Text(getSecondsToDuration(Int(duration))).modifier(MontserratFont(.bold, size: 32))
+                Text(getSecondsToDuration(Int(duration))).modifier(MontserratFont(.bold, size: 30))
                     .foregroundColor(Color.white)
             }
             Circle()

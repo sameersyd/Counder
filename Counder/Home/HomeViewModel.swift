@@ -33,9 +33,11 @@ class HomeViewModel: ObservableObject {
     func dismissPickerSheet() { showPickerSheet = false }
     
     func startTimerButt(hours: Int, mins: Int, secs: Int) {
-        setTimer(hours: hours, minutes: mins, seconds: secs)
-        enableTimerMethod()
-        showPickerSheet = false
+        if hours != 0 || mins != 0 || secs != 0 {
+            setTimer(hours: hours, minutes: mins, seconds: secs)
+            enableTimerMethod()
+            showPickerSheet = false
+        }
     }
     
     func enableTimerMethod() {
@@ -44,6 +46,7 @@ class HomeViewModel: ObservableObject {
             self.duration -= 1
             let seconds = Int(self.duration) % 60
             self.progress = 100 - Double((Double(seconds)/60) * 100)
+            if self.duration <= 0 { self.stopTimerButton() }
         }
     }
     
