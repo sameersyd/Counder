@@ -16,6 +16,8 @@ class HomeViewModel: ObservableObject {
     @Published var timerActive = false
     @Published var duration = 0.0
     
+    @Published var showPickerSheet = false
+    
     init() { }
     
     func setTimer(hours: Int, minutes: Int, seconds: Int) {
@@ -24,11 +26,16 @@ class HomeViewModel: ObservableObject {
         self.duration = Double(seconds)
     }
     
-    func timerButt() {
-        if progress == 0 {
-            setTimer(hours: 2, minutes: 3, seconds: 8)
-            enableTimerMethod()
-        }
+    func displayPickerSheet() {
+        if duration == 0 { showPickerSheet = true }
+    }
+    
+    func dismissPickerSheet() { showPickerSheet = false }
+    
+    func startTimerButt() {
+        setTimer(hours: 2, minutes: 3, seconds: 8)
+        enableTimerMethod()
+        showPickerSheet = false
     }
     
     func enableTimerMethod() {

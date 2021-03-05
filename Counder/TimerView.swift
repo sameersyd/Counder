@@ -48,14 +48,14 @@ struct TimerActionView: View {
                     .frame(width: 50, height: 50)
                     .foregroundColor(Color.white)
                     .background(Color.main_color).cornerRadius(25)
-                    .offset(x: viewModel.progress == 0 ? -150 : 0, y: 0)
+                    .offset(x: viewModel.progress == 0 ? -1000 : 0, y: 0)
                 Spacer()
                 Button(action: { viewModel.timerActionButton() },
                        label: { Image(systemName: viewModel.timerActive ? "pause" : "arrowtriangle.right.fill").resizable().frame(width: 14, height: 18) })
                     .frame(width: 50, height: 50)
                     .foregroundColor(Color.white)
                     .background(Color.main_color).cornerRadius(25)
-                    .offset(x: viewModel.progress == 0 ? 150 : 0, y: 0)
+                    .offset(x: viewModel.progress == 0 ? 1000 : 0, y: 0)
             }.padding(75)
         }
     }
