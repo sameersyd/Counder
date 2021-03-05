@@ -12,7 +12,7 @@ struct HomeView: View {
     let appWidth = UIScreen.main.bounds.width
     let appHeight = UIScreen.main.bounds.height
     
-    @State var progress = Double(0)
+    @ObservedObject private var viewModel = HomeViewModel()
     
     var body: some View {
         ZStack {
@@ -29,11 +29,27 @@ struct HomeView: View {
                 }.padding(.top, 16).padding(.leading, 23)
                 Spacer()
             }
-            TimerView(progress: $progress)
-                .onAppear() {
-                    Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { _ in progress = progress > 100 ? 0 : progress + 5 }
-                }
-        }
+            Button(action: { viewModel.timerButt() }, label: { TimerView(progress: $viewModel.progress) })
+            // Timer action buttons
+            VStack {
+                Spacer()
+                HStack {
+                    Button(action: { viewModel.stopTimerButton() },
+                           label: { Image(systemName: "stop.fill").resizable().frame(width: 18, height: 18) })
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(Color.white)
+                        .background(Color.main_color).cornerRadius(25)
+                        .offset(x: viewModel.progress == 0 ? -150 : 0, y: 0)
+                    Spacer()
+                    Button(action: { viewModel.timerActionButton() },
+                           label: { Image(systemName: viewModel.timerActive ? "pause" : "arrowtriangle.right.fill").resizable().frame(width: 14, height: 18) })
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(Color.white)
+                        .background(Color.main_color).cornerRadius(25)
+                        .offset(x: viewModel.progress == 0 ? 150 : 0, y: 0)
+                }.padding(75)
+            }
+        }.animation(.spring())
     }
 }
 
