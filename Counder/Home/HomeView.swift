@@ -35,7 +35,7 @@ struct HomeView: View {
             }
             .blur(radius: viewModel.showPickerSheet ? 15 : 0)
             // Picker Sheet
-            TimerPickerView(viewModel: viewModel).offset(x: 0, y: viewModel.showPickerSheet ? 0 : 1500)
+            CountPickerView(viewModel: viewModel).offset(x: 0, y: viewModel.showPickerSheet ? 0 : 1500)
         }.animation(.spring())
     }
 }
