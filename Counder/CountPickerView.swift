@@ -36,7 +36,7 @@ struct CountPickerView: View {
                 Button(action: { viewModel.startTimerButt(hours: hoursIndex, mins: minsIndex, secs: secsIndex) },
                        label: { Image(systemName: "arrowtriangle.right.fill").resizable().frame(width: 14, height: 18) })
                     .frame(width: 50, height: 50)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.main_secondary_color)
                     .background(Color.main_color).cornerRadius(25)
                     .padding(.bottom, 30)
             }
@@ -59,7 +59,7 @@ struct GenPickerView: View {
             Picker(selection: $index, label: Text("")) {
                 ForEach(0..<values) { i in
                     Text("\(i)").modifier(MontserratFont(.regular, size: 16))
-                        .foregroundColor(Color.white).frame(width: 35)
+                        .foregroundColor(Color.main_secondary_color).frame(width: 35)
                         .background(Color.main_color).cornerRadius(8)
                 }
             }.frame(maxWidth: 100).clipped()
